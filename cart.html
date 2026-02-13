@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FoodExpress - Categories</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #f2f2f2;
+    }
+
+    header {
+        background: #ff4d4d;
+        color: white;
+        padding: 15px;
+        text-align: center;
+    }
+
+    /* Category Buttons */
+    .category-buttons {
+        text-align: center;
+        margin: 20px;
+    }
+
+    .category-buttons button {
+        padding: 10px 18px;
+        margin: 5px;
+        border: none;
+        border-radius: 20px;
+        background: #ff9999;
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    .category-buttons button:hover {
+        background: #ff4d4d;
+        color: white;
+    }
+
+    /* Menu Grid */
+    .menu {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .card {
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        overflow: hidden;
+        transition: 0.3s;
+    }
+
+    .card:hover {
+        transform: scale(1.05);
+    }
+
+    .card img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+    }
+
+    .card-content {
+        padding: 15px;
+    }
+
+    .price {
+        font-weight: bold;
+        color: #ff4d4d;
+    }
+
+    .add-btn {
+        width: 100%;
+        padding: 8px;
+        border: none;
+        background: #ff4d4d;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 8px;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+</style>
+</head>
+
+
+<body>
+<header>
+    <h1>FoodExpress - Menu Categories</h1>
+</header>
+<div class="category-buttons">
+    <button onclick="filterSelection('all')">All</button>
+    <button onclick="filterSelection('veg')">Veg</button>
+    <button onclick="filterSelection('nonveg')">Non-Veg</button>
+    <button onclick="filterSelection('fastfood')">Fast Food</button>
+    <button onclick="filterSelection('dessert')">Desserts</button>
+</div>
+<header>    
+    <a href="./payment.html"><button>added to cart</button></a>
+    <div class="cart-icon">
+        🛒
+        <span class="cart-count" id="cart-count">0</span>
+    </div>
+</header>
+
+<div class="menu">
+    <!-- Veg -->
+    <div class="card veg">
+        <img src="C:\Users\vyshn\OneDrive\Desktop\paneer.jpg" alt="Paneer Butter Masala">
+        <div class="card-content">
+            <h3>Paneer Butter Masala</h3>
+            <p class="price">₹180</p>
+            <button onclick="addToCart()">Add to Cart</button>
+        </div>
+    </div>
+
+    <div class="card veg">
+        <img src="c:\Users\vyshn\OneDrive\Desktop\dosa.jpg" alt="">
+        <div class="card-content">
+            <h3>Masala Dosa</h3>
+            <p class="price">₹100</p>
+            <button onclick="addToCart()">Add to Cart</button>
+        </div>
+    </div>
+
+    <!-- Non-Veg -->
+    <div class="card nonveg">
+        <img src="C:\Users\vyshn\OneDrive\Desktop\biryani.webp" alt="">
+        <div class="card-content">
+            <h3>Chicken Biryani</h3>
+            <p class="price">₹220</p>
+           <button onclick="addToCart()">Add to Cart</button>
+        </div>
+    </div>
+
+    <div class="card nonveg">
+        <img src="C:\Users\vyshn\OneDrive\Desktop\chiktikka.jpg" alt="Chicken Tikka">
+        <div class="card-content">
+            <h3>Chicken Tikka</h3>
+            <p class="price">₹250</p>
+            <button onclick="addToCart()">Add to Cart</button>
+        </div>
+    </div>
+    <!-- Fast Food -->
+    <div class="card fastfood">
+        <img src="c:\Users\vyshn\OneDrive\Desktop\pizza.jpg" alt="Pizza">
+        <div class="card-content">
+            <h3>Pizza</h3>
+            <p class="price">₹299</p>
+            <button onclick="addToCart()">Add to Cart</button>
+        </div>
+    </div>
+
+    <div class="card fastfood">
+        <img src="c:\Users\vyshn\OneDrive\Desktop\burger.jpg" alt="Burger">
+        <div class="card-content">
+            <h3>Burger</h3>
+            <p class="price">₹149</p>
+            <button onclick="addToCart()">Add to Cart</button>
+        </div>
+    </div>
+
+    <!-- Desserts -->
+    <div class="card dessert">
+        <img src="c:\Users\vyshn\OneDrive\Desktop\ice.jpg" alt="Ice Cream">
+        <div class="card-content">
+            <h3>Ice Cream</h3>
+            <p class="price">₹120</p>
+            <button onclick="addToCart()">Add to Cart</button>
+        </div>
+    </div>
+
+    <div class="card dessert">
+        <img src="C:\Users\vyshn\OneDrive\Desktop\ccake.jpg" alt="Cake">
+        <div class="card-content">
+            <h3>Chocolate Cake</h3>
+            <p class="price">₹180</p>
+            <button onclick="addToCart()">Add to Cart</button>
+        </div>
+    </div>
+</div>
+<script>
+let count = 0;
+
+function addToCart() {
+    count++;
+    document.getElementById("cart-count").innerText = count;
+}
+</script>
+
+
+
+</body>
+</html>
+
+

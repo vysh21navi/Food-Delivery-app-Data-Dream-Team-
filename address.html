@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>FoodExpress Checkout</title>
+
+<style>
+body {
+    font-family: Arial;
+    margin: 0;
+    background: #f4f4f4;
+}
+
+header {
+    background: #ff4d4d;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+
+.container {
+    width: 50%;
+    margin: 30px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+h2 {
+    text-align: center;
+}
+
+input, textarea, select {
+    width: 100%;
+    padding: 8px;
+    margin: 8px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background: #e60000;
+}
+
+.success {
+    margin-top: 15px;
+    text-align: center;
+    color: green;
+    font-weight: bold;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>🧾 Checkout</h1>
+</header>
+
+<div class="container">
+
+    <h2>Total Amount: ₹<span id="totalAmount">0</span></h2>
+
+    <h3>Delivery Address</h3>
+    <input type="text" id="name" placeholder="Full Name" required>
+    <input type="text" id="phone" placeholder="Phone Number" required>
+    <textarea id="address" placeholder="Full Address" rows="3" required></textarea>
+
+    <h3>Payment Method</h3>
+    <select id="payment">
+        <option value="Cash on Delivery">Cash on Delivery</option>
+        <option value="UPI">UPI</option>
+        <option value="Card">Debit/Credit Card</option>
+    </select>
+
+    <button onclick="placeOrder()">Place Order</button>
+
+    <div class="success" id="successMsg"></div>
+
+</div>
+
+<script>
+
+/* Example total (you can pass from cart page using localStorage) */
+let total = 879;  
+document.getElementById("totalAmount").innerText = total;
+
+function placeOrder() {
+
+    let name = document.getElementById("name").value;
+    let phone = document.getElementById("phone").value;
+    let address = document.getElementById("address").value;
+    let payment = document.getElementById("payment").value;
+
+    if(name === "" || phone === "" || address === "") {
+        alert("Please fill all address details!");
+        return;
+    }
+
+    document.getElementById("successMsg").innerHTML =
+        "✅ Order Placed Successfully!<br>" +
+        "Payment Method: " + payment + "<br>" +
+        "Your food will be delivered soon 🚀";
+
+}
+</script>
+
+</body>
+</html>
